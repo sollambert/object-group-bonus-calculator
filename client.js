@@ -52,7 +52,7 @@ function onReady() {
 function onClick() {
   let table = $("#boxes");
   table.empty();
-  for (employee of employees) {
+  for (let employee of employees) {
     let salary = `$` + (new Intl.NumberFormat('en-US').format(employee.annualSalary))
     let bonus = calculateIndividualEmployeeBonus(employee);
     let bonusFormat = `$` + (new Intl.NumberFormat('en-US').format(bonus));
