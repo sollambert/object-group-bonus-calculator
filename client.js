@@ -42,7 +42,7 @@ console.log('array of employee data: ',  employees );
 
 // This is not a race. Everyone on your team should understand what is happening.
 // Ask questions when you don't.
-
+calculateIndividualEmployeeBonus(employees[0]);
 
 
 
@@ -50,8 +50,22 @@ console.log('array of employee data: ',  employees );
 //
 function calculateIndividualEmployeeBonus( employee ) {  
   // your logic here
+  let bonusPercentage = 0;
+
+  switch (employee.reviewRating) {
+    case 3:
+      bonusPercentage += .04;
+      break;
+    case 4:
+      bonusPercentage += .06;
+      break;
+    case 5:
+      bonusPercentage += .1;
+      break;
+    
+  }
   
   
   // return new object with bonus results
-
+  console.log(bonusPercentage);
 }
