@@ -73,7 +73,22 @@ function calculateIndividualEmployeeBonus( employee ) {
     bonusPercentage -= .01;
   }
 
-  
+  if (bonusPercentage > .13) {
+    bonusPercentage = .13;
+  }
+
+  if (bonusPercentage < 0) {
+    bonusPercentage = 0;
+  }
+
+  let bonus = Math.round(employee.annualSalary * bonusPercentage);
+  let totalComp = Number (employee.annualSalary) + bonus;
+
+
   // return new object with bonus results
   console.log(bonusPercentage);
+  console.log(bonus);
+  console.log(totalComp);
+  console.log(employee.annualSalary);
+  return totalComp;
 }
