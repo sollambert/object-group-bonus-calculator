@@ -52,19 +52,19 @@ function onReady() {
 function onClick() {
   let table = $("#boxes");
   table.empty();
-for (employee of employees) {
-  let salary = `$` + (new Intl.NumberFormat('en-US').format(employee.annualSalary))
-  let bonus = calculateIndividualEmployeeBonus(employee);
-   let bonusFormat = `$` + (new Intl.NumberFormat('en-US').format(bonus));
+  for (employee of employees) {
+    let salary = `$` + (new Intl.NumberFormat('en-US').format(employee.annualSalary))
+    let bonus = calculateIndividualEmployeeBonus(employee);
+    let bonusFormat = `$` + (new Intl.NumberFormat('en-US').format(bonus));
 
-  let totalComp = `$` + (new Intl.NumberFormat('en-US').format(Number (employee.annualSalary) + bonus));
-  let list = $("#employees");
-  table.append(`<tr><td>${employee.name}</td>
-  <td>${employee.reviewRating}</td>
-  <td>${salary}</td>
-  <td>${bonusFormat}</td>
-  <td>${totalComp}</td></tr>`);
-}
+    let totalComp = `$` + (new Intl.NumberFormat('en-US').format(Number (employee.annualSalary) + bonus));
+    let list = $("#employees");
+    table.append(`<tr><td>${employee.name}</td>
+    <td>${employee.reviewRating}</td>
+    <td>${salary}</td>
+    <td>${bonusFormat}</td>
+    <td>${totalComp}</td></tr>`);
+  }
 }
 
 
