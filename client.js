@@ -69,6 +69,10 @@ function calculateIndividualEmployeeBonus( employee ) {
     bonusPercentage += .05;
   }
   
+  if (employee.annualSalary > 650000) {
+    bonusPercentage -= .01;
+  }
+
   
   // return new object with bonus results
   console.log(bonusPercentage);
