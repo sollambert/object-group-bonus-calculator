@@ -64,6 +64,10 @@ function calculateIndividualEmployeeBonus( employee ) {
       break;
     
   }
+
+  if (employee.employeeNumber.length === 4) {
+    bonusPercentage += .05;
+  }
   
   
   // return new object with bonus results
