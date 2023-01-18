@@ -37,12 +37,35 @@ console.log('array of employee data: ',  employees );
 
 // YOU SHOULD NOT NEED TO CHANGE ANYTHING ABOVE THIS POINT
 
-// This problem is massive! Break the problem down, take small steps, and test as you go.
+// This problem is massive! /tdeak the problem down, take small steps, and test as you go.
 // What is the fewest lines of code I can write and test to get just a little closer?
 
 // This is not a race. Everyone on your team should understand what is happening.
 // Ask questions when you don't.
-calculateIndividualEmployeeBonus(employees[0]);
+
+$(document).ready(onReady);
+
+function onReady() {
+  $("#start").click(onClick);
+}
+
+function onClick() {
+  let table = $("#boxes");
+  table.empty();
+for (employee of employees) {
+  let salary = `$` + (new Intl.NumberFormat('en-US').format(employee.annualSalary))
+  let bonus = calculateIndividualEmployeeBonus(employee);
+   let bonusFormat = `$` + (new Intl.NumberFormat('en-US').format(bonus));
+
+  let totalComp = `$` + (new Intl.NumberFormat('en-US').format(Number (employee.annualSalary) + bonus));
+  let list = $("#employees");
+  table.append(`<tr><td>${employee.name}</td>
+  <td>${employee.reviewRating}</td>
+  <td>${salary}</td>
+  <td>${bonusFormat}</td>
+  <td>${totalComp}</td></tr>`);
+}
+}
 
 
 
@@ -82,13 +105,8 @@ function calculateIndividualEmployeeBonus( employee ) {
   }
 
   let bonus = Math.round(employee.annualSalary * bonusPercentage);
-  let totalComp = Number (employee.annualSalary) + bonus;
 
 
   // return new object with bonus results
-  console.log(bonusPercentage);
-  console.log(bonus);
-  console.log(totalComp);
-  console.log(employee.annualSalary);
-  return totalComp;
+  return bonus;
 }

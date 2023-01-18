@@ -1,0 +1,26 @@
+body {
+  font: 1em Futura, 'Century Gothic', AppleGothiuc, sans-serif;
+}
+
+h1 {
+    color: yellow;
+    background-color: darkgreen;
+    text-align: center;
+}
+
+td {
+    text-align: right;
+    color: purple;
+    background-color: greenyellow;
+}
+
+th {
+    text-align: center;
+    color: blue;
+    background-color: orange;
+}
+
+table, th, td {
+    border: 1px solid palevioletred;
+    padding: 3px;
+}
