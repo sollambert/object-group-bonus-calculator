@@ -53,17 +53,21 @@ function onClick() {
   let table = $("#boxes");
   table.empty();
   for (let employee of employees) {
-    let salary = `$` + (new Intl.NumberFormat('en-US').format(employee.annualSalary))
+    let salary = formatCurrency(employee.annualSalary)
     let bonus = calculateIndividualEmployeeBonus(employee);
-    let bonusFormat = `$` + (new Intl.NumberFormat('en-US').format(bonus));
+    let bonusFormat = formatCurrency(bonus);
 
-    let totalComp = `$` + (new Intl.NumberFormat('en-US').format(Number (employee.annualSalary) + bonus));
+    let totalComp = formatCurrency((Number (employee.annualSalary) + bonus));
     table.append(`<tr><td>${employee.name}</td>
     <td>${employee.reviewRating}</td>
     <td>${salary}</td>
     <td>${bonusFormat}</td>
     <td>${totalComp}</td></tr>`);
   }
+}
+
+function formatCurrency(dollars) {
+  return (`$` + (new Intl.NumberFormat('en-US').format(Number (dollars))));
 }
 
 
